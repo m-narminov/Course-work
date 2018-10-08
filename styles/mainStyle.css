@@ -1,0 +1,25 @@
+body{
+  text-align: center;
+  align-content: center;
+}
+
+a{
+  text-decoration: none;
+}
+
+a:hover{
+  color: darkorange;
+  text-shadow: 1px 1px black;
+}
+
+#container{
+  background-color: #e9a4a4;
+  width: 80%;
+  height: 100%;
+}
+
+#menu{
+  height: 50px;
+  vertical-align: middle;
+  
+}
