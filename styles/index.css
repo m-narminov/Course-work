@@ -22,9 +22,16 @@ a:hover{
 }
 
 #container{
-  background-color: #e9a4a4;
-  width: 100%;
+  background-color: #fff;
+  align-content: center;
+  width: 80%;
   height: 100%;
+  margin: 0 10%;
+}
+
+#main-table {
+  background: #186a2bcb;
+  border-radius: 9px;
 }
 
 #menu{
@@ -33,3 +40,9 @@ a:hover{
   background: #ab43e7;
   padding: 1%;
 }
+
+.main-news {
+  width: 33%;
+  float: left;
+}
+
