@@ -1,0 +1,33 @@
+* {
+    margin: 0;
+    padding: 0;
+    text-align: justify;
+
+}
+
+BODY {
+   align-content: center;
+}
+
+article > p {
+    padding: 10px;
+}
+
+article {
+    font-family: Arial, sans-serif;
+    ont-size: 18px;
+    word-spacing: 3px;
+}
+
+#container {
+    margin: 0 auto;
+    text-align: justify;
+    width: 80%;
+}
+
+#article-header{
+    background-image: url("../resources/imgs/serials_2019.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    size: 100%;
+}
