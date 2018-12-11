@@ -10,13 +10,25 @@
 </head>
 
 <body>
+    <div id="menu">
+        <a href="#">Комиксы</a>
+        <a href="#">Фильмы</a>
+        <a href="../pages/news.html">События</a>
+        <a href="#">Технологии</a>
+        <a href="#">VR</a>
+        <a href="../pages/account.html">Логин / Регистрация</a>
+    </div>
+
     <div id="container">
-        <div class="newsPageImg" background="../resources/imgs/serials_2019.jpg">
+        <div class="newsPageImg">
+
 
         </div>
         <article>
                 <div id="article-header">
-                    ssss
+                    <div class="category">Кино и сериалы | #Итоги 2018 года</div>
+                    <div class="news-title"></div>
+                    <div class="news-info"></div>
                 </div>
                 <p>Список наших киноожиданий из 30 лент на будущий год мы уже огласили, осталось разобраться с сериалами. С ними
                 все несколько сложнее, чем с предыдущей статьей, так как о сериалах, запланированных на 2019 год, на данный
@@ -335,7 +347,16 @@
         </div>
 
     </div>
-    <script src=""></script>
+    <script>
+        window.onscroll = function(){scrollFunction()};
+        var menu = document.getElementById("menu");
+        var sticky = menu.offsetTop;
+
+        function scrollFunction(){
+            if (window.pageYOffset >= sticky) menu.classList.add("sticky");
+            else menu.classList.remove("sticky");
+        }
+    </script>
 </body>
 
 </html>
