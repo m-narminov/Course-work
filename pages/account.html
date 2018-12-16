@@ -1,16 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="../styles/account.css">
+	<title>Учетная запись</title>
 </head>
+
 <body>
+	<div id="menu">
+		<!--Вставить лого сайта
+			и переключатель ночного режима-->
+		<a href="#">Комиксы</a>
+		<a href="#">Фильмы</a>
+		<a href="../pages/news.html">События</a>
+		<a href="#">Технологии</a>
+		<a href="#">VR</a>
+		<a href="../php/signin.php">Логин</a>
+		<a href="../php/signup.php">Регистрация</a>
+	</div>
+	<form id="changeLoginForm" action="../php/accountManagement.php" method="post">
+		Логин: <br>
+		<input type="text" name="login" id="inpLogin"><br>
+		Адрес электронной почты: <br>
+		<input type="email" name="email" id="email"><br>
+		Введите новый пароль:<br>
+		<input type="password" name="" id=""><br>
+		Проверка пароля:<br>
+		<input type="password" name="" id=""><br>
+		inp
+
+	</form>
 
 
 
 
-    <script src=""></script>
+
+	<script src=""></script>
 </body>
+
 </html>
