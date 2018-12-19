@@ -9,10 +9,6 @@ BODY {
    align-content: center;
 }
 
-a:active {
-
-}
-
 main > p, h4, main > iframe {
     padding: 15px;
 }
@@ -87,6 +83,17 @@ img {
     padding: 20px;
 }
 
+#main-news {
+    height: 50%;
+}
+
+.news-table {
+    border-left: 1px solid red;
+    height: 500px;
+    width: 600px;
+
+}
+
 .news-title {
     font-weight: bold;
     font-size: 2rem;
@@ -95,7 +102,7 @@ img {
 }
 
 .news-info {
-    color: #ffffff5d;
+    color: #f3f2f25d;
     font-weight: bold;
 }
 

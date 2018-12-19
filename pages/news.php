@@ -1,3 +1,6 @@
+<?php
+	include "../php/includes/config.php";
+?>
 <!DOCTYPE html>
 <html lang="ru">
 
@@ -11,18 +14,12 @@
 </head>
 
 <body>
-	<div id="menu">
-		<!--Вставить лого сайта
-      и переключатель ночного режима-->
-		<a href="#">Комиксы</a>
-		<a href="#">Фильмы</a>
-		<a href="../pages/news.html">События</a>
-		<a href="#">Технологии</a>
-		<a href="#">VR</a>
-		<a href="../php/signin.php">Логин</a>
-		<a href="../php/signup.php">Регистрация</a>
-	</div>
+		<?php include "../php/includes/menu.php" ?>
 
+	<?php
+		//Выводить статью из бд
+
+	?>
 	<div id="container">
 		<div id="article-header">
 			<div class="category">Кино и сериалы | #Итоги 2018 года</div>
@@ -331,9 +328,14 @@
 				<!-- Modal Caption (Image Text) -->
 				<div id="caption"></div>
 			</div>
-			<footer><div>Icons made by <a href="https://www.freepik.com/" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" 			    title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" 			    title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div></footer>
+
 		</main>
 	</div>
+	<?php
+		include "../php/includes/footer.php"
+	?>
+
+
 	<script>
 		window.onscroll = function () { scrollFunction() };
 		var menu = document.getElementById("menu");
