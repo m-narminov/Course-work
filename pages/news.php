@@ -14,19 +14,38 @@
 </head>
 
 <body>
-		<?php include "../php/includes/menu.php" ?>
+	<?php include "../php/includes/menu.php" ?>
 
-	<?php
+	<div class="container">
+		<?php
 		//Выводить статью из бд
 
-	?>
-	<div id="container">
+		?>
 		<div id="article-header">
-			<div class="category">Кино и сериалы | #Итоги 2018 года</div>
-			<div class="news-title">Самые ожидаемые сериалы 2019</div>
-			<div class="news-info">08 декабря 2018 года, 19:00 Александр Трофимов</div>
+			<div class="category">
+				<?php
+					//Выодить категорию
+				?>
+				Кино и сериалы | #Итоги 2018 года
+			</div>
+			<div class="article-title">
+				<?php //вывести заголовок статьи
+				?>
+				Самые ожидаемые сериалы 2019
+			</div>
+			<div class="article-info">
+				<div class="article-time">08 декабря 2018 года, 19:00</div>
+				<div class="article-author">Александр Трофимов</div>
+				<?php
+				//Вывод даты и автора
+				?>
+
+			</div>
 		</div>
 		<main>
+			<?php
+			//Вывести содержание статьи
+			?>
 			<p class="article-preface">Список наших киноожиданий из 30 лент на будущий год мы уже огласили, осталось разобраться
 				с сериалами. С ними все несколько сложнее, чем с предыдущей статьей, так как о сериалах, запланированных на 2019
 				год, на данный момент известно куда меньше, чем о фильмах.</p>
@@ -336,37 +355,7 @@
 	?>
 
 
-	<script>
-		window.onscroll = function () { scrollFunction() };
-		var menu = document.getElementById("menu");
-		var sticky = menu.offsetTop;
 
-		function scrollFunction() {
-			if (window.pageYOffset >= sticky) menu.classList.add("sticky");
-			else menu.classList.remove("sticky");
-		}
-
-		// Get the modal
-		var modal = document.getElementById('myModal');
-
-		// Get the image and insert it inside the modal - use its "alt" text as a caption
-		var img = document.getElementById('myImg');
-		var modalImg = document.getElementById("img01");
-		var captionText = document.getElementById("caption");
-		img.onclick = function () {
-			modal.style.display = "block";
-			modalImg.src = this.src;
-			captionText.innerHTML = this.alt;
-		}
-
-		// Get the <span> element that closes the modal
-		var span = document.getElementsByClassName("close")[0];
-
-		// When the user clicks on <span> (x), close the modal
-		span.onclick = function () {
-			modal.style.display = "none";
-		}
-	</script>
 </body>
 
 </html>

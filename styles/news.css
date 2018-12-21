@@ -1,45 +1,41 @@
 * {
-    margin: 0;
-    padding: 0;
-    text-align: justify;
-    font-family: Helvetica, Verdana, sans-serif;
+   margin: 0;
+   padding: 0;
+   text-align: justify;
+   font-family: Helvetica, Verdana, sans-serif;
 }
 
 BODY {
    align-content: center;
 }
 
-main > p, h4, main > iframe {
+h4,
+main > p,
+main > iframe {
     padding: 15px;
 }
 
 main {
-    font-size: 16px;
-
-    line-height: 1.7em;
-    width: 80%;
+  font-size: 16px;
+  line-height: 1.7em;
+  width: 70%;
 }
 
 img {
-    display: block;
-    margin: 0 auto;
-    width: 100%;
+  display: block;
+  margin: 0 auto;
+  width: 100%;
 }
 
-#container {
-    margin: 0 auto;
-    text-align: center;
-    width: 70%;
-}
 
 #menu{
-    background: #333;
-    color: #fff;
-    font-size: 1.3em;
-    text-align: center;
-    text-transform: uppercase;
-    padding: .8em;
-    z-index: 99;
+  background: #333;
+  color: #fff;
+  font-size: 1em;
+  text-align: center;
+  text-transform: uppercase;
+  padding: .8em;
+  z-index: 99;
 }
 
 #menu a {
@@ -62,16 +58,31 @@ img {
     display: block;
 }
 
-
 #article-header {
     background-image: url("../resources/imgs/serials_2019.jpg");
     background-repeat: no-repeat;
-    background-size: auto;
+    background-size: cover;
     background-position: top;
-    margin: 20px auto;
-    padding: 30px;
+    margin: 10px auto;
+    padding: 30px 30px 0 30px;
     min-height: 600px;
     color: #FFF;
+    top: 20px;
+}
+
+.container {
+    margin: 0 auto;
+    position: relative;
+    text-align: center;
+    top: 40px;
+    width: 75%;
+}
+
+.category,
+.article-title,
+.article-info {
+    margin: 10px;
+    font-size: 18px;
 }
 
 .article-links {
@@ -83,21 +94,15 @@ img {
     padding: 20px;
 }
 
-#main-news {
-    height: 50%;
-}
-
-.news-table {
-    border-left: 1px solid red;
-    height: 500px;
-    width: 600px;
+.article-info {
+    text-transform: capitalize;
+    font-weight: bold;
 
 }
 
-.news-title {
+.article-title {
     font-weight: bold;
     font-size: 2rem;
-    margin: 1rem 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
@@ -112,7 +117,8 @@ img {
     text-transform: uppercase;
 }
 
-.article-preface, .keywords {
+.article-preface,
+.keywords {
     font-size: 20px;
     font-style: italic;
     font-weight: bold;
@@ -122,10 +128,6 @@ img {
     position: fixed;
     top: 0;
     width: 100%;
-}
-
-.sticky + #container{
-    padding-top: 60px;
 }
 
 
@@ -175,7 +177,8 @@ img {
   }
 
   /* Add Animation - Zoom in the Modal */
-  .modal-content, #caption {
+  .modal-content,
+  #caption {
     animation-name: zoom;
     animation-duration: 0.6s;
   }

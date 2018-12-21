@@ -1,4 +1,5 @@
 <?php require '../php/includes/config.php'; ?>
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -6,8 +7,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-  <link rel="stylesheet" href="../styles/indexphp.css">
+  <link rel="stylesheet" href="../styles/index.css">
   <link rel="stylesheet" href="../styles/news.css">
+
   <title><?php echo $config['title']; ?></title>
 </head>
 <body>
@@ -42,23 +44,44 @@
   ?>
   <?php endif; ?>
 
-
-
   <div class = "container">
     <div class = "news-table">
       <div class = "first-col">
-        <div id = "main-news">Самая большая новость</div>
-        <div class = "mini-news">mini</div>
-
+        <div id = "main-news">
+          <div class="news-category">Кино и сериалы</div>
+          <div class="news-title">Канобу вспоминает "Людей в черном"</div>
+        </div>
+        <div class = "mini-news">
+          <div class="news-category">Интернет</div>
+          <div class="news-title">
+            Лучшие мемы 2018: Дока 2, Илон Маск,
+            Чемпионат мира и мышь, которая (кродется)
+          </div>
+        </div>
       </div>
       <div id = "second-col">
-        <div class = "mini-news">mini</div>
-        <div class = "mini-news">mini</div>
-        <div class = "mini-news">mini</div>
+        <div class = "mini-news">
+          <div class="news-category">Кино и сериалы</div>
+          <div class="news-title">
+            30 главных фильмов и сериалов 2018. "Люк Кейдж"
+          </div>
+        </div>
+        <div class = "mini-news">
+          <div class="news-category">Кино и сериалы</div>
+          <div class="news-title">
+            30 главных фильмов и сериалов 2018. "Люк Кейдж"
+          </div>
+        </div>
+        <div class = "mini-news">
+          <div class="news-category">Кино и сериалы</div>
+          <div class="news-title">
+            30 главных фильмов и сериалов 2018. "Люк Кейдж"
+          </div>
+        </div>
       </div>
       <aside id = "pop-news">
 
-        <!--Самые просматриваемые новости в колонке до 10 новостей -->
+        Самые просматриваемые новости в колонке до 10 новостей
       </aside>
 
     </div>
@@ -71,5 +94,6 @@
       <button class="btn btn-lg primary btn-block" type="submit">Register</button>
     </form>
   </div>
+
 </body>
 </html>
