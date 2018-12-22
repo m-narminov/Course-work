@@ -17,10 +17,6 @@
 	<?php include "../php/includes/menu.php" ?>
 
 	<div class="container">
-		<?php
-		//Выводить статью из бд
-
-		?>
 		<div id="article-header">
 			<div class="category">
 				<?php

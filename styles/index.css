@@ -4,9 +4,22 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
+.news-list::-webkit-scrollbar {
+    border-radius: 5px;
+    width: 8px;
+}
 
+.news-list:-webkit-scrollbar-track {
+    background: gray;
+    border-radius: 5px;
+}
 
-#menu{
+.news-list::-webkit-scrollbar-thumb {
+    background: #ddd;
+    border-radius: 5px;
+}
+
+#menu {
     background: #333;
     color: #fff;
     font-size: 1em;
@@ -36,40 +49,92 @@
     display: block;
 }
 
-.container {
-    width: 85%;
-    top: 40px;
+#container {
+    margin: 100px auto 0;
+    width: 80%;
+    top: 600px;
 }
 
-.news-table {
-    background:#222;
+.sticky {
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+#news-table {
+    background:#111;
     border-radius: 10px;
     color: #fff;
     height: 600px;
     width: 100%;
-    padding: 15px;
     max-height: 700px;
+    text-align: left;
+    font-weight: bold;
+
+
 }
-    #main-news {
-        height: 66%;
+
+    #main-news,
+    .mini-news,
+    #pop-news {
+        /*border-radius: 10px;*/
+
+        padding: 25px;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+        .news-list {
+
+            box-sizing: border-box;
+            height: 90%;
+            overflow-y: scroll;
+            margin: 10px;
+        }
+
+        .news-list-i {
+            width: 70%;
+            margin: 5px;
+            height: 15%;
+        }
+
+    .news-category {
+        font-variant-caps: all-small-caps;
+        font-style: italic;
+        opacity: .8;
     }
 
+    .news-title {
+        font-size: 22px;
 
-    .news-table > div ,
-    #pop-news {
-        display: inline-block;
+    }
+
+    #main-news {
+        height: 66.67%;
+    }
+        #main-news .news-title {
+            font-size: 2.5rem;
+            font-style: italic;
+        }
+
+
+    #first-col,
+    #second-col {
         height: 100%;
         width : 37%;
-        padding: 5px;
         vertical-align: top;
+        display: inline-block;
+        float: left; /*На самом деле это работает*/
     }
 
     #pop-news {
-        width: 25%;
-        overflow-y: auto;
+        display: flow-root;
+        width: 26%;
+        opacity: .8;
+        height: 100%;
+
     }
     .mini-news {
-        height: 33%;
+        height: 33.33%;
     }
 
 .form-signin {
@@ -77,4 +142,3 @@
     padding: 15px;
     margin: 0 auto;
 }
-

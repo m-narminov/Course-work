@@ -8,19 +8,14 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
   <link rel="stylesheet" href="../styles/index.css">
-  <link rel="stylesheet" href="../styles/news.css">
-
   <title><?php echo $config['title']; ?></title>
 </head>
 <body>
   <?php
 
     include "../php/includes/menu.php";
-  ?>
-  <a href="login.php">Вход</a><br>
-  <a href="signup.php">Регистрация</a>
 
-  <?php if(isset($_SESSION['logged_user'])): ?>
+    if(isset($_SESSION['logged_user'])): ?>
       <a href="logout.php">exit</a>
 
   <?php
@@ -35,55 +30,204 @@
       $query = "INSERT INTO users (username, email, password) VALUES ('$username', '$email', '$password_1') ";
       $result = mysqli_query($connection, $query);
 
-      if($result){
+      if($result) {
         $smsg = "Регистрация прошла успешно";
-      } else{
+      } else {
         $fmsg = "Ошибка регистрации";
       }
     }
+    endif;
   ?>
-  <?php endif; ?>
 
-  <div class = "container">
-    <div class = "news-table">
-      <div class = "first-col">
-        <div id = "main-news">
+  <div id = "container">
+    <div id = "news-table">
+      <div id = "first-col">
+        <div id = "main-news" style="background-image: url(../resources/imgs/aquaMan.jpg);">
+          <span ></span>
           <div class="news-category">Кино и сериалы</div>
-          <div class="news-title">Канобу вспоминает "Людей в черном"</div>
+          <div class="news-title">37 неудобных вопросов к &laquo;Аквамену&raquo;</div>
         </div>
-        <div class = "mini-news">
+        <div class = "mini-news" style="background-image: url(../resources/imgs/spiderjpg.jpg);">
           <div class="news-category">Интернет</div>
           <div class="news-title">
-            Лучшие мемы 2018: Дока 2, Илон Маск,
-            Чемпионат мира и мышь, которая (кродется)
+            Что такое &laquo;Паукогеддон&raquo;?
           </div>
         </div>
       </div>
       <div id = "second-col">
-        <div class = "mini-news">
+        <div class = "mini-news" style="background-image: url(../resources/imgs/game.jpg);">
+          <div class="news-category">Игры</div>
+          <div class="news-title">
+            30 главных игр 2018. Краткий обзор Soulcalibur VI
+          </div>
+        </div>
+        <div class = "mini-news" style="background-image: url(../resources/imgs/afro.jpg);">
           <div class="news-category">Кино и сериалы</div>
           <div class="news-title">
             30 главных фильмов и сериалов 2018. "Люк Кейдж"
           </div>
         </div>
-        <div class = "mini-news">
+        <div class = "mini-news" style="background-image: url(../resources/imgs/football.jpg);">
           <div class="news-category">Кино и сериалы</div>
           <div class="news-title">
-            30 главных фильмов и сериалов 2018. "Люк Кейдж"
-          </div>
-        </div>
-        <div class = "mini-news">
-          <div class="news-category">Кино и сериалы</div>
-          <div class="news-title">
-            30 главных фильмов и сериалов 2018. "Люк Кейдж"
+          Лучшие мемы 2018: Дока 2, Илон Маск,
+            Чемпионат мира и мышь, которая (кродется)
           </div>
         </div>
       </div>
-      <aside id = "pop-news">
+      <div id = "pop-news">
+        Новости
+        <div class="news-list">
+          <?php
+            /*
+              вывести каждую новость в блоке
+              с сылкой на категорию
+              и ссылкой в форме заголовка статьи
+            */
 
-        Самые просматриваемые новости в колонке до 10 новостей
-      </aside>
+          ?>
 
+          <div class="news-list-i">
+            <div>time</div> <a href="">article 1</a>
+          </div>
+          <div class="news-list-i">
+            <div>time</div> <a href="">article 1</a>
+          </div>
+          <div class="news-list-i">
+            <div>time</div> <a href="">article 1</a>
+          </div>
+          <div class="news-list-i">
+            <div>time</div> <a href="">article 1</a>
+          </div>
+          <div class="news-list-i">
+            <div>time</div> <a href="">article 1</a>
+          </div>
+          <div class="news-list-i">
+            <div>time</div> <a href="">article 1</a>
+          </div>
+          <div class="news-list-i">
+            <div>time</div> <a href="">article 1</a>
+          </div>
+          <div class="news-list-i">
+            <div>time</div> <a href="">article 1</a>
+          </div>
+          <div class="news-list-i">
+            <div>time</div> <a href="">article 1</a>
+          </div>
+          <div class="news-list-i">
+            <div>time</div> <a href="">article 1</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="news-grid">
+      <p class="news-category-big"></p>
+      <div class="grid-cells"></div>
+      <div class="grid-cells"></div>
+      <div class="grid-cells"></div>
+      <div class="grid-cells"></div>
+      <div class="grid-cells"></div>
+      <div class="grid-cells"></div>
+      <div class="grid-cells"></div>
+      <div class="grid-cells"></div>
+      <div class="grid-cells"></div>
+    </div>
+    <div class="news-grid">
+      <p class="news-category-big"></p>
+      <div class="grid-cells"></div>
+      <div class="grid-cells"></div>
+      <div class="grid-cells"></div>
+      <div class="grid-cells"></div>
+      <div class="grid-cells"></div>
+      <div class="grid-cells"></div>
+      <div class="grid-cells"></div>
+      <div class="grid-cells"></div>
+      <div class="grid-cells"></div>
+    </div>
+    <div class="news-grid">
+      <p class="news-category-big"></p>
+      <div class="grid-cells"></div>
+      <div class="grid-cells"></div>
+      <div class="grid-cells"></div>
+      <div class="grid-cells"></div>
+      <div class="grid-cells"></div>
+      <div class="grid-cells"></div>
+      <div class="grid-cells"></div>
+      <div class="grid-cells"></div>
+      <div class="grid-cells"></div>
+    </div>
+    <div class="news-grid">
+      <p class="news-category-big"></p>
+      <div class="grid-cells"></div>
+      <div class="grid-cells"></div>
+      <div class="grid-cells"></div>
+      <div class="grid-cells"></div>
+      <div class="grid-cells"></div>
+      <div class="grid-cells"></div>
+      <div class="grid-cells"></div>
+      <div class="grid-cells"></div>
+      <div class="grid-cells"></div>
+    </div>
+    <div class="news-grid">
+      <p class="news-category-big"></p>
+      <div class="grid-cells"></div>
+      <div class="grid-cells"></div>
+      <div class="grid-cells"></div>
+      <div class="grid-cells"></div>
+      <div class="grid-cells"></div>
+      <div class="grid-cells"></div>
+      <div class="grid-cells"></div>
+      <div class="grid-cells"></div>
+      <div class="grid-cells"></div>
+    </div>
+    <div class="news-grid">
+      <p class="news-category-big"></p>
+      <div class="grid-cells"></div>
+      <div class="grid-cells"></div>
+      <div class="grid-cells"></div>
+      <div class="grid-cells"></div>
+      <div class="grid-cells"></div>
+      <div class="grid-cells"></div>
+      <div class="grid-cells"></div>
+      <div class="grid-cells"></div>
+      <div class="grid-cells"></div>
+    </div>
+    <div class="news-grid">
+      <p class="news-category-big"></p>
+      <div class="grid-cells"></div>
+      <div class="grid-cells"></div>
+      <div class="grid-cells"></div>
+      <div class="grid-cells"></div>
+      <div class="grid-cells"></div>
+      <div class="grid-cells"></div>
+      <div class="grid-cells"></div>
+      <div class="grid-cells"></div>
+      <div class="grid-cells"></div>
+    </div>
+    <div class="news-grid">
+      <p class="news-category-big"></p>
+      <div class="grid-cells"></div>
+      <div class="grid-cells"></div>
+      <div class="grid-cells"></div>
+      <div class="grid-cells"></div>
+      <div class="grid-cells"></div>
+      <div class="grid-cells"></div>
+      <div class="grid-cells"></div>
+      <div class="grid-cells"></div>
+      <div class="grid-cells"></div>
+    </div>
+    <div class="news-grid">
+      <p class="news-category-big"></p>
+      <div class="grid-cells"></div>
+      <div class="grid-cells"></div>
+      <div class="grid-cells"></div>
+      <div class="grid-cells"></div>
+      <div class="grid-cells"></div>
+      <div class="grid-cells"></div>
+      <div class="grid-cells"></div>
+      <div class="grid-cells"></div>
+      <div class="grid-cells"></div>
     </div>
 
     <form method="POST" class="form-signin">
@@ -94,6 +238,12 @@
       <button class="btn btn-lg primary btn-block" type="submit">Register</button>
     </form>
   </div>
+  <script>
+    function fullImage(){
+      target = document.getElementById('news-table');
 
+
+    }
+  </script>
 </body>
 </html>
