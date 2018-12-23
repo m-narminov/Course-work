@@ -1,7 +1,11 @@
 
 <div id="menu" class="sticky">
 		<!--Вставить лого сайта
-      и переключатель ночного режима-->
+			и переключатель ночного режима-->
+	<a id="logo" href="index.php">
+		<!--<img src="../resources/imgs/logo.png" alt="" srcset="">-->
+	</a>
+
 	<a href="games.php"><?php echo "Игры" ?></a>
 	<a href="cinema.php"><?php echo "Кино и сериалы" ?></a>
 	<a href="books.php"><?php echo "Комиксы и книги" ?></a>
