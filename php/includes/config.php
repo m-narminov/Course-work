@@ -8,6 +8,9 @@
       'name' => 'geeking'
     )
   );
+
+  $link = mysqli_connect('localhost','root','', 'geeking');
   require "db.php";
+  $categories = array();
 
 ?>

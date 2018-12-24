@@ -17,6 +17,11 @@
 
     include "../php/includes/menu.php";
 
+
+    mysqli_select_db($link,'geeking');
+    var_dump( $table = mysqli_query($link, "SELECT * FROM articles"));
+    $row = mysqli_fetch_row($table);
+
     if(isset($_SESSION['logged_user'])): ?>
       <a href="logout.php">exit</a>
 
@@ -41,12 +46,14 @@
     endif;
   ?>
 
+
+
   <div id = "container">
     <div id = "news-table">
       <div id = "first-col">
-        <div id = "main-news" style="background-image: url(../resources/imgs/aquaMan.jpg);">
+        <div id = "main-news" style="background-image: url(<?php  ?>../resources/imgs/aquaMan.jpg);">
           <a href="#" class="news-category">Кино и сериалы</a>
-          <a href="#" class="news-title">37 неудобных вопросов к &laquo;Аквамену&raquo;</a>
+          <?php echo '<a href="news.php?article_id=' .$row[0].   '" class="news-title">'. $row[1] .'</a>' ?>
         </div>
         <div class = "mini-news" style="background-image: url(../resources/imgs/spiderjpg.jpg);">
           <a href="#" class="news-category">Интернет</a>
