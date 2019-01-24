@@ -1,7 +1,6 @@
 @font-face {
     font-family: 'Pattaya';
     src: url('../fonts/Pattaya/Pattaya-Regular.ttf');
-
 }
 
 * {
@@ -10,12 +9,7 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
-a {
-    text-decoration: none !important;
-
-}
-
-a:hover {
+a, a:hover{
     text-decoration: none !important;
 }
 
@@ -38,7 +32,7 @@ footer a:hover {
 }
 
 #go-up {
-    background: url('../resources/imgs/arrow-up.png') no-repeat ;
+    background: url('../res/img/arrow-up.png') no-repeat ;
     bottom: 60px;
     left: 30px;
     position: fixed;
@@ -48,15 +42,14 @@ footer a:hover {
 }
 
 #go-up:hover {
-    background: url('../resources/imgs/arrow-up.png') no-repeat ;
+    background: url('../res/img/arrow-up.png') no-repeat ;
 }
 
 #logo {
-    background-image: url('../resources/imgs/logo.png');
+    background-image: url('../res/img/logo.png');
     transition: transform 2s;
     background-repeat: no-repeat;
     width: 100%;
-
 }
 
 #logo:hover {
@@ -128,7 +121,6 @@ footer a:hover {
 #main-news > a:hover,
 .mini-news > a:hover {
     border-left: 3px solid ;
-
 }
 
 .news-list::-webkit-scrollbar {
@@ -145,7 +137,6 @@ footer a:hover {
     background: #ddd;
     border-radius: 5px;
 }
-
 
     #main-news,
     .mini-news,
@@ -208,14 +199,11 @@ footer a:hover {
         height: 33.33%;
     }
 
-
-
     .news-flex{
         display: flex;
         margin: 20px 0;
         flex-wrap: wrap;
         justify-content: space-between;
-
     }
 
         .news-flex a {
@@ -227,13 +215,11 @@ footer a:hover {
 
         .news-flex a:hover {
             color: #767676;
-
             padding: 5px;
             display: block;
         }
 
         .news-category-big {
-
             width: 100%;
             font-size: 40px;
             font-weight: bold;

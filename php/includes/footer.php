@@ -1,4 +1,4 @@
-<footer>
+<footer style="display: flex;">
 		<div class="info">
 			<ul>
 				<li><a href="">Пользовательское соглашение</a></li>

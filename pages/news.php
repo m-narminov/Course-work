@@ -1,9 +1,6 @@
-<?php
-	include "../php/includes/config.php";
-?>
+<?php	include "../php/includes/config.php"; ?>
 <!DOCTYPE html>
 <html lang="ru">
-
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,7 +9,6 @@
 	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 	<title>Новости</title>
 </head>
-
 <body>
 	<?php include "../php/includes/menu.php" ?>
 
@@ -53,7 +49,6 @@
 					echo $rows[5];
 			?>
 
-
 			<h2>Больше итогов 2018 года от «Канобу»</h2>
 			<p>Кино и сериалы. Главные события 2018: триумф Marvel, крах Star Wars, уход супергероев с Netflix
 				Главные события в комиксах Marvel и DC в 2018 году: свадьбы,перемены и уход легенд</p>
@@ -83,9 +78,6 @@
 	<?php
 		include "../php/includes/footer.php"
 	?>
-
-
-
 </body>
 
 </html>
