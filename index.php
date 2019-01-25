@@ -15,7 +15,8 @@
   <?php require_once 'php/includes/menu.php'; //вставка навигации
     //require_once 'php/includes/connect.php';
 
-    if (isset($_POST['username']) && isset($_POST['password1'])){
+    //регистрация пользователей
+    if (isset($_POST['username']) && isset($_POST['password1'])) {
       $username = $_POST['username'];
       $email = $_POST['email'];
       $password_1 = $_POST['password1'];
@@ -30,7 +31,6 @@
         $fmsg = "Ошибка регистрации";
       }
     }
-
   ?>
       Тест загрузки картинок
       <form action="photo.php" method="post" enctype="multipart/form-data">
@@ -40,31 +40,34 @@
   <?php
 
       //запрос на выдачу последних 20 новостей
-      $sql_last_news = "SELECT * FROM articles ORDER BY published DESC LIMIT 20";
+      $sql_last_news = "SELECT article_id,
+                               title,
+                               category_id,
+                               views,
+                               published,
+                               article_img
+                        FROM articles ORDER BY published DESC LIMIT 26";
       $sql_status = mysqli_query($link, $sql_last_news);
 
       if (!$sql_status) {
         echo '<br>Не получилось вывести статьи<br>';
-
       }
-
       //запрос списка категорий
       //$sql_cat = "SELECT * FROM categories";
       //$cat_stat = mysqli_query($link, $sql_cat);
 
       while($categs[] = mysqli_fetch_array($cat_stat)) {};
 
-
-      $article = mysqli_fetch_assoc($sql_status);
-
     ?>
   <div id = "container">
     <div id = "news-table">
       <div id = "first-col">
-        <div id = "main-news" style="background-image: url(<?php //путь к картинке данной статьи ?>res/img/aquaMan.jpg);">
-          <a href="#" class="news-category"><?php echo $categs[$article['category_id']]['cat_name']; ?></a>
+        <?php $article = mysqli_fetch_assoc($sql_status); ?>
+        <div id = "main-news" style="background-image: url(<?php //путь к картинке данной статьи ?>res/img/aquaMan.jpg);f">
+          <a href="<?php echo 'cat.php?cat_id='.$article['category_id']; ?>" class="news-category"><?php echo $categs[$article['category_id']]['cat_name']; ?></a>
           <?php echo '<a href="pages/news.php?article_id=' .$article['article_id']. '" class="news-title">' .$article['title']. '</a>'; ?>
         </div>
+        <?php $article = mysqli_fetch_assoc($sql_status); ?>
         <div class = "mini-news" style="background-image: url(res/img/spiderjpg.jpg);">
           <a href="#" class="news-category">Интернет</a>
           <a href="#" class="news-title">
@@ -73,16 +76,19 @@
         </div>
       </div>
       <div id = "second-col">
+        <?php $article = mysqli_fetch_assoc($sql_status); ?>
         <div class = "mini-news" style="background-image: url(res/img/game.jpg);">
           <a href="#" class="news-category">Игры</a>
           <a href="#" class="news-title">
             30 главных игр 2018. Краткий обзор Soulcalibur VI
           </a>
         </div>
+        <?php $article = mysqli_fetch_assoc($sql_status); ?>
         <div class = "mini-news" style="background-image: url(res/img/afro.jpg);">
           <a href="#" class="news-category">Кино и сериалы</a>
           <a href="#" class="news-title">30 главных фильмов и сериалов 2018. "Люк Кейдж"</a>
         </div>
+        <?php $article = mysqli_fetch_assoc($sql_status); ?>
         <div class = "mini-news" style="background-image: url(res/img/football.jpg);">
           <a href="#" class="news-category">Кино и сериалы</a>
           <a href="#" class="news-title">Лучшие мемы 2018: Дока 2, Илон Маск,
@@ -93,15 +99,10 @@
         Новости
         <div class="news-list">
           <?php
-            /*
-              вывести каждую новость в блоке
-              с сылкой на категорию
-              и ссылкой в форме заголовка статьи
-            */
-            while ($article = mysqli_fetch_assoc($sql_status)) {
+            for ($i = 0; $i < 15; $i++) {
+              $article = mysqli_fetch_assoc($sql_status);
               echo '<div class="news-list-i"><div>'.$article['published'].'</div>
-                    <a href="pages/news.php?article_id='.$article['article_id'].'">'.$article['title'].'</a>
-                    </div>';
+                    <a href="pages/news.php?article_id='.$article['article_id'].'">'.$article['title'].'</a></div>';
             }
           ?>
         </div>
@@ -109,27 +110,37 @@
     </div>
 
     <?php
-      $cat_count = count($categories);
+      $svg_cat_count = count($categories);
 
-      //вывод блоков по категорям
-      for ($i = 0; $i < $cat_count; $i++) {
-        echo '<div class="news-flex">
-                <p class="news-category-big"><span class="svg">
-                <img src="'.$categories[$i].'" alt="svg" srcset=""></span>Недавние</p>';
+      echo '<div class="news-flex"><p class="news-category-big"><span class="svg"><img src="'.$categories[0].'" alt="" srcset=""></span>Последние</p>';
+      //вывод последних новостей
+        for ($i = 0; $i < 6; $i++) {
+          $article = mysqli_fetch_assoc($sql_status);
+          echo '<div class="flex-cells"><img src="'.$article['photo'].'" alt="" srcset="">
+                  <a href="cat.php?cat_id='.($article['category_id']-1).'" class="flex-caption  news-category">'.$all_categs[$article['category_id']]['cat_name'].'</a>
+                  <a href="pages/news.php?article_id='.$article['article_id'].'">'.$article['title'].'</a></div>';
+        }
+      echo '</div>';
+
+      //новости по категориям
+      for ($i = 1; $i < $svg_cat_count; $i++) {
+
+        //if ($categories[$i] != NULL){
+        echo '<div class="news-flex"><p class="news-category-big"><span class="svg">
+                <img src="'.$categories[$i].'" alt="svg" srcset=""></span>'.$categs[$i-1]['cat_name'].'</p>';
 
         //вывод новостей из категории
-        //добавить вывод названий статей, создать ссылки к каждой
         for ($j = 0; $j < 6; $j++) {
-          echo '<div class="flex-cells">
-                  <img src="'.$article['photo'].'" alt="" srcset="">
-                  <a href="cat.php?cat_id='.$categs[$i]['category_id'].'" class="flex-caption  news-category">'.$categs[$i]['cat_name'].'</a>
-                  <a href="">Игрок в CS:GO с помощью сложного прыжка показал удобную точку
-                    для защиты на карте Mirage</a></div>';
+
+          echo '<div class="flex-cells"><img src="'.$article['photo'].'" alt="" srcset="">
+                  <a href="cat.php?cat_id='.$categs[$i-1]['category_id'].'" class="flex-caption  news-category">'.$categs[$i-1]['cat_name'].'</a>
+                  <a href="pages/news.php?article_id='.$article['article_id'].'">'.$article['title'].'</a></div>';
         }
+        //}
         echo '</div>';
       }
-    ?>
 
+    ?>
     <!-- <form id="form-signin" method="POST" class="form-signin">
       <input type="text" name="username" class="form-control" placeholder="Username" required>
       <input type="email" name="email" class="form-control" placeholder="Email" required>
@@ -137,7 +148,6 @@
       <input type="text" name="password2" class="form-control" placeholder="Repeat password" required>
       <button class="btn btn-lg primary btn-block" type="submit">Register</button>
     </form> -->
-
   </div>
   <a id="go-up" href="#"  onclick="top.gotoTop(); return false;"></a>
   <?php include 'php/includes/footer.php'; ?>

@@ -108,8 +108,6 @@ footer a:hover {
     max-height: 700px;
     text-align: left;
     font-weight: bold;
-
-
 }
 
 #news-table a {
@@ -178,7 +176,6 @@ footer a:hover {
             font-style: italic;
         }
 
-
     #first-col,
     #second-col {
         height: 100%;
@@ -193,7 +190,6 @@ footer a:hover {
         width: 26%;
         opacity: .8;
         height: 100%;
-
     }
     .mini-news {
         height: 33.33%;

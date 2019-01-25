@@ -6,17 +6,13 @@
 	</a>
 
 	<?php
-		//echo '<a href="cat.php?cat_id='.$cate.'"></a>';
-	?>
-	<a href="cinema.php"><?php echo "Кино и сериалы" ?></a>
-	<a href="books.php"><?php echo "Комиксы и книги" ?></a>
-	<a href="tech.php"><?php echo "Технологии" ?></a>
-	<a href="internet.php"><?php echo "Интернет" ?></a>
-	<a href="music.php"><?php echo "Музыка" ?></a>
-	<a href="cyber.php"><?php echo "Киберспорт" ?></a>
-	<a href="login.php"><?php	echo "Вход" ?></a>
-</div>
 
+
+		foreach ($all_categs as $category) {
+			echo '<a href="cat.php?cat_id='.$category['category_id'].'">'.$category['cat_name'].'</a>';
+		}
+	?>
+</div>
 <script>
 		// Get the modal
 		var modal = document.getElementById('myModal');
