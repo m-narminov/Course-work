@@ -1,12 +1,18 @@
 @font-face {
-    font-family: 'Pattaya';
-    src: url('../fonts/Pattaya/Pattaya-Regular.ttf');
+    font-family: Pattaya;
+    src: url(/Course-work/fonts/Pattaya/Pattaya-Regular.ttf);
 }
-
+@font-face {
+    font-family: WarmongerBB;
+    src: url(/Course-work/fonts/warmongerbb.otf);
+}
+@font-face {
+    font-family: AldoTheApache;
+    src: url(/Course-work/fonts/aldotheapache.ttf);
+}
 * {
     margin: 0;
     padding: 0;
-    font-family: Arial, Helvetica, sans-serif;
 }
 
 a, a:hover{
@@ -18,6 +24,10 @@ footer {
     background: #111;
     text-align: center;
     margin: 0;
+	padding:30px 10px;
+	color:#fff;
+	font-family:WarmongerBB;
+	font-size:24pt;
 }
 
 footer a {
@@ -29,6 +39,16 @@ footer a:hover {
     text-decoration: wavy;
     text-decoration-style: solid;
     text-decoration-color: #fff;
+}
+footer li{
+	list-style-type:none;
+	display:inline-block;
+	width:25%;
+	text-align:center;
+}
+.info{
+	padding:20px 0 0;
+	font-size:16pt;
 }
 
 #go-up {
@@ -46,10 +66,10 @@ footer a:hover {
 }
 
 #logo {
-    background-image: url('../res/img/logo.png');
+    display:inline-block;
     transition: transform 2s;
-    background-repeat: no-repeat;
-    width: 100%;
+    width: 250px;
+	height: 50px;
 }
 
 #logo:hover {
@@ -60,6 +80,7 @@ footer a:hover {
 #menu {
     background: #333;
     color: #fff;
+	font-family:WarmongerBB;
     font-size: 1em;
     text-align: center;
     text-transform: uppercase;
@@ -71,7 +92,7 @@ footer a:hover {
     text-decoration: none;
     color: #fff;
     text-align: center;
-    padding: 17px 20px;
+    padding: 27px 20px;
 }
 
 #menu a:hover {
@@ -98,7 +119,9 @@ footer a:hover {
     top: 0;
     width: 100%;
 }
-
+.voidm{
+	height:80px;
+}
 #news-table {
     background:#111;
     border-radius: 10px;
@@ -240,4 +263,22 @@ footer a:hover {
 
 .svg {
     margin-right: 10px;
+}
+.rules {
+	margin:10px 10px;
+	font-family:AldoTheApache;
+}
+.rules ol{
+	padding:0 10px;
+	list-style-position:inside;
+	list-style-type:decimal;
+}
+.rules ul{
+	padding:0 10px;
+	list-style-type:disc;
+	list-style-position:inside;
+}
+.ll ol{
+	padding:0 20px;
+	list-style-type:lower-latin;
 }
