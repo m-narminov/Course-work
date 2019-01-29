@@ -6,11 +6,10 @@
 	</a>
 
 	<?php
-
-
 		foreach ($all_categs as $category) {
 			echo '<a href="cat.php?cat_id='.$category['category_id'].'">'.$category['cat_name'].'</a>';
 		}
+		//****************!!!!!!!!!! СДЕЛАТЬ ВХОД И РЕГИСТРАЦИЮ !!!!!!!!!!!!!!!!!!*******************
 	?>
 </div>
 <script>

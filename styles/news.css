@@ -7,12 +7,17 @@
 
 BODY {
    align-content: center;
+   margin-top: 30px;
 }
 
-h4,
+h3, h4, ul,
 main > p,
 main > iframe {
     padding: 15px;
+}
+
+ul {
+    list-style-position: inside;
 }
 
 main {
@@ -24,7 +29,7 @@ main {
 img {
   display: block;
   margin: 0 auto;
-  width: 100%;
+  height: 80%;
 }
 
 footer {
@@ -32,6 +37,9 @@ footer {
     color: firebrick;
 }
 
+a:hover {
+    text-decoration-line: blink;
+}
 
 #menu{
   background: #333;
@@ -64,15 +72,30 @@ footer {
 }
 
 #article-header {
-    background-image: url("../res/img/serials_2019.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: top;
     margin: 10px auto;
     padding: 30px 30px 0 30px;
     min-height: 600px;
-    color: #FFF;
+    /*color: #FFF;*/
     top: 20px;
+    z-index: 0;
+}
+
+#article-header:before {
+    z-index: 0;
+    opacity: .6;
+    background: #000;
+}
+
+.question {
+    font-weight: bold;
+}
+
+.mini-text {
+    font-size: 14px;
+    margin: 15px 300px;
 }
 
 .container {
@@ -134,8 +157,6 @@ footer {
     top: 0;
     width: 100%;
 }
-
-
 
 /*Пример модальной картинки**/
 /* Style the Image Used to Trigger the Modal */
@@ -218,3 +239,120 @@ footer {
       width: 100%;
     }
   }
+
+/*Слайдер*/
+.slider {
+    width: 70%;
+    height: 600px;
+    margin: auto;
+    margin-top: 25px;
+    position: relative;
+    overflow: hidden;
+}
+
+.slider > input,
+.slider > label {
+    display: none;
+}
+
+.slider > div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity .8s ease-out .1s, visibility .1s ease-out 0s;
+    z-index: 0;
+}
+
+.slider > input:checked + div + label,
+.slider > input:checked + div + label + label {
+    cursor: pointer;
+    display: block;
+    height: 60px;
+    width: 60px;
+    border-radius: 30px;
+    background-color: rgba(150, 150, 250, .7);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 100;
+}
+
+.slider > input:checked + div + label:after,
+.slider > input:checked + div + label + label:after {
+    font-size: 30px;
+    color: #fff;
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    line-height: 60px;
+}
+
+.slider > input:checked + div {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity .8s ease-out .1s, visibility .1s ease-out 0s;
+}
+
+.slider > input:checked + div + label {
+    left: -30px;
+}
+
+.slider > input:checked + div + label:after {
+    content: '◀';
+    left: 50%;
+}
+
+.slider > input:checked + div + label +label {
+    right: -30px;
+}
+
+.slider > input:checked + div + label +label:after {
+    content: '▶';
+    right: 50%;
+}
+
+.slider p {
+    text-align: center;
+}
+
+.center-node {
+    font-weight: bold;
+    text-align: center;
+}
+/*слайдер*/
+
+.twitter-tweet, .twitter-tweet-rendered {
+    margin: auto;
+}
+
+.answer {
+    border-color: lightskyblue;
+    margin-right: 0;
+    margin-left: 60px;
+    position: relative;
+    border-color: #4FC7ED;
+    line-height: 40px;
+    font-size: 20px;
+    font-weight: 500;
+}
+.answer:before {
+
+    content: "\F100";
+    position: absolute;
+    left: -60px;
+    font-size: 40px;
+    top: 5px;
+    font-family: Font Awesome\ 5 Free;
+    font-weight: 900;
+    -webkit-font-smoothing: antialiased;
+    display: inline-block;
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    line-height: 1;
+}

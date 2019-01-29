@@ -7,16 +7,15 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<link rel="stylesheet" href="../styles/news.css">
 	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+	<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 	<title>Новости</title>
 </head>
 <body>
 	<?php include "../php/includes/menu.php"; ?>
 	<div class="container">
-
 		<div id="article-header">
 			<?php
-				$full_article;
-				$rows;
 				if (!isset($_GET['article_id'])) {
 					die();
 				}
@@ -29,10 +28,6 @@
 			<div class="article-info">
 				<div class="article-time">08 декабря 2018 года, 19:00</div>
 				<div class="article-author">Александр Трофимов</div>
-				<?php
-				//Вывод даты и автора
-				?>
-
 			</div>
 		</div>
 		<main>
@@ -51,10 +46,8 @@
 			  Modal Caption (Image Text)
 				<div id="caption"></div>
 			</div> -->
-			
 		</main>
 	</div>
 	<?php	require_once '../php/includes/footer.php'; ?>
 </body>
-
 </html>

@@ -23,7 +23,6 @@
                                 article_img FROM articles WHERE category_id = '$cat_id'";
       $news = mysqli_query($link, $sql_find_news);
 
-
       if (!$news) {
         exit("Нет статей");
       }
