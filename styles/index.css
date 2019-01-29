@@ -67,14 +67,8 @@ footer li{
 
 #logo {
     display:inline-block;
-    transition: transform 2s;
     width: 250px;
 	height: 50px;
-}
-
-#logo:hover {
-    background-color: transparent;
-    transform: rotate(360deg);
 }
 
 #menu {
