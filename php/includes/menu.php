@@ -1,17 +1,18 @@
 <div id="menu" class="sticky">
-		<!--Вставить лого сайта
-			и переключатель ночного режима-->
-	<a id="logo" href="index.php">
-		<!--<img src="../resources/imgs/logo.png" alt="" srcset="">-->
-	</a>
+	<!--Вставить лого сайта
+		и переключатель ночного режима-->
 
+	<div id="logo">
+		<a href="/Course-work/index.php">
+			<img src="/Course-work/res/img/logo-g.png" alt="" srcset="">
+		</a></div>
 	<?php
-
-
 		foreach ($all_categs as $category) {
-			echo '<a href="cat.php?cat_id='.$category['category_id'].'">'.$category['cat_name'].'</a>';
+			echo '<a href="/Course-work/cat.php?cat_id='.$category['category_id'].'">'.$category['cat_name'].'</a>';
 		}
 	?>
+</div>
+<div class="voidm">
 </div>
 <script>
 		// Get the modal
