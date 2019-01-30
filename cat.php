@@ -9,9 +9,7 @@
   <link rel="stylesheet" href="styles/index.css" />
 </head>
 <body>
-  <?php
-    require_once 'php/includes/menu.php';
-
+  <?php  require_once 'php/includes/menu.php';
     if (isset($_GET['cat_id'])) {
       $cat_id = $_GET['cat_id'];
 
@@ -30,7 +28,7 @@
       while ($art = mysqli_fetch_assoc($news)) {
         echo '<div class="flex-cells"><img src="'.$art['article_img'].'" alt="" srcset="">
         <a href="cat.php?cat_id='.$all_categs[$cat_id-1]['category_id'].'" class="flex-caption  news-category">'.$all_categs[$cat_id-1]['cat_name'].'</a>
-        <a href="pages/news.php?article_id='.$art['article_id'].'">'.$art['title'].'</a></div>';
+        <a href="news.php?article_id='.$art['article_id'].'">'.$art['title'].'</a></div>';
       }
       echo '</div>';
     }

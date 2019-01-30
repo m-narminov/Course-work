@@ -12,7 +12,7 @@
   <title><?php echo $config['title']; ?></title>
 </head>
 <body>
-  <?php require_once 'php/includes/menu.php'; //вставка навигации
+  <?php require_once 'php/includes/menu.php';
     //require_once 'php/includes/connect.php';
 
     //регистрация пользователей
@@ -65,7 +65,7 @@
         <?php $article = mysqli_fetch_assoc($sql_status); ?>
         <div id = "main-news" style="background-image: url(<?php //путь к картинке данной статьи ?>res/img/aquaMan.jpg);f">
           <a href="<?php echo 'cat.php?cat_id='.$article['category_id']; ?>" class="news-category"><?php echo $categs[$article['category_id']]['cat_name']; ?></a>
-          <?php echo '<a href="pages/news.php?article_id=' .$article['article_id']. '" class="news-title">' .$article['title']. '</a>'; ?>
+          <?php echo '<a href="news.php?article_id=' .$article['article_id']. '" class="news-title">' .$article['title']. '</a>'; ?>
         </div>
         <?php $article = mysqli_fetch_assoc($sql_status); ?>
         <div class = "mini-news" style="background-image: url(res/img/spiderjpg.jpg);">
@@ -102,7 +102,7 @@
             for ($i = 0; $i < 15; $i++) {
               $article = mysqli_fetch_assoc($sql_status);
               echo '<div class="news-list-i"><div>'.$article['published'].'</div>
-                    <a href="pages/news.php?article_id='.$article['article_id'].'">'.$article['title'].'</a></div>';
+                    <a href="news.php?article_id='.$article['article_id'].'">'.$article['title'].'</a></div>';
             }
           ?>
         </div>
@@ -111,17 +111,25 @@
 
     <?php
       $svg_cat_count = count($categories);
-
+      //Запрос выбора новостей по категориям
       echo '<div class="news-flex"><p class="news-category-big"><span class="svg"><img src="'.$categories[0].'" alt="" srcset=""></span>Последние</p>';
       //вывод последних новостей
         for ($i = 0; $i < 6; $i++) {
           $article = mysqli_fetch_assoc($sql_status);
           echo '<div class="flex-cells"><img src="'.$article['photo'].'" alt="" srcset="">
                   <a href="cat.php?cat_id='.($article['category_id']-1).'" class="flex-caption  news-category">'.$all_categs[$article['category_id']]['cat_name'].'</a>
-                  <a href="pages/news.php?article_id='.$article['article_id'].'">'.$article['title'].'</a></div>';
+                  <a href="news.php?article_id='.$article['article_id'].'">'.$article['title'].'</a></div>';
         }
       echo '</div>';
 
+      $sql_cat_news = "SELECT article_id,
+                              title,
+                              category_id,
+                              views,
+                              published,
+                              article_img FROM articles ORDER BY category_id ASC, published DESC LIMIT 30";
+
+      $articles = mysqli_query($link, $sql_cat_news);
       //новости по категориям
       for ($i = 1; $i < $svg_cat_count; $i++) {
 
@@ -131,10 +139,10 @@
 
         //вывод новостей из категории
         for ($j = 0; $j < 6; $j++) {
-
-          echo '<div class="flex-cells"><img src="'.$article['photo'].'" alt="" srcset="">
+          $article = mysqli_fetch_assoc($articles);
+          echo '<div class="flex-cells"><img src="'.$article['article_img'].'" alt="" srcset="">
                   <a href="cat.php?cat_id='.$categs[$i-1]['category_id'].'" class="flex-caption  news-category">'.$categs[$i-1]['cat_name'].'</a>
-                  <a href="pages/news.php?article_id='.$article['article_id'].'">'.$article['title'].'</a></div>';
+                  <a href="news.php?article_id='.$article['article_id'].'">'.$article['title'].'</a></div>';
         }
         //}
         echo '</div>';
