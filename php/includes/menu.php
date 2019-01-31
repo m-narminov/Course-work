@@ -1,3 +1,4 @@
+<?php session_start() ?>
 <div id="menu" class="sticky">
 	<!--Вставить лого сайта
 		и переключатель ночного режима-->
@@ -10,7 +11,11 @@
 		foreach ($all_categs as $category) {
 			echo '<a href="/Course-work/cat.php?cat_id='.$category['category_id'].'">'.$category['cat_name'].'</a>';
 		}
-		//****************!!!!!!!!!! СДЕЛАТЬ ВХОД И РЕГИСТРАЦИЮ !!!!!!!!!!!!!!!!!!*******************
+		if (isset($_SESSION['id'])){
+			echo "<a href=#>Привет, ".$_SESSION['user']."!</a> <a href=/Course-work/php/logout.php>Выход</a>";
+		}
+		else echo "<a href=/Course-work/php/log_sign.html>Вход/регистрация</a>";
+		
 	?>
 </div>
 <div class="voidm">

@@ -1,4 +1,6 @@
 <?php
+  session_start();
   unset($_SESSION['logged_user']);
-  header('Location: /Course-work/php/');
+  session_destroy();
+  header('Location: /Course-work/index.php');
 ?>

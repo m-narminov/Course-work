@@ -20,14 +20,23 @@ a, a:hover{
 }
 
 footer {
-    width: 100%;
+    flex:0 0 auto;
+	width: 100%;
     background: #111;
     text-align: center;
     margin: 0;
+<<<<<<< HEAD
     padding: 30px 0;
     color:#fff;
     font-family:WarmongerBB;
     font-size:24pt;
+=======
+	padding:30px 10px;
+	color:#fff;
+	font-family:WarmongerBB;
+	font-size:24pt;
+	
+>>>>>>> e4177f1da87d250e36fcb91919e7d727ddbe2a32
 }
 
 footer a {
@@ -45,6 +54,16 @@ footer li{
 	display:inline-block;
 	width:25%;
 	text-align:center;
+}
+.wrapper{
+		display:flex;
+		flex-direction:column;
+		height:100%;
+}
+.cont{
+	flex:1 0 auto;
+	padding:40px 20px;
+	font-family:Tahoma;
 }
 .info{
 	padding:20px 0 0;

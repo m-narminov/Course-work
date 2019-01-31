@@ -1,44 +1,57 @@
 <?php
-
-	$data = $_POST;
-	if (isset($data['do_signup'])){
-		$errors = array();
-
-		if (R::count('users', "login = ?", array($data['login'])) > 0 ){
-			$errors[] = "Пользователь с таким логином уже существует";
-		}
-
-		if (R::count('users', "email = ?", array($data['email'])) > 0 ){
-			$errors[] = "Пользователь с таким email уже существует";
-		}
-
-		if ($data['pass1'] != $data['pass2']){
-			$errors[] = "Пароли не совпадают!";
-		}
-
-		if (empty($errors)){
-			$user = R::dispense('users');
-			$user->login = $data['login'];
-			$user->email = $data['email'];
-			$user->password = password_hash($data['pass1'], PASSWORD_DEFAULT);
-			R::store($user);
-			echo "<div style='color: green;'>Регистрация прошла успешно</div>";
-
-		} else {
-			echo "<div style='color: red;'>".array_shift($errors)."</div><hr>";
-		}
-		$_POST[] = "";
-	}
+	session_start();
+	require 'includes/config.php';
 ?>
-
-<form action="signup.php" method="post">
-	<p>Ваш логин: </p>
-	<p><input type="text" name="login" required></p>
-	<p>Ваша почта: </p>
-	<p><input type="email" name="email" required></p>
-	<p>Придумайте пароль: </p>
-	<p><input type="password" name="pass1" required></p>
-	<p>Проверим пароль: </p>
-	<p><input type="password" name="pass2" required></p>
-	<button type="submit" name="do_signup">Регистрация</button>
-</form>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  <link rel="stylesheet" href="../styles/index.css">
+  <script src="js/jquery-3.3.1.min.js"></script>
+  <script src="js/scrollUp.js"></script>
+  <title><?php echo $config['title']; ?></title>
+</head>
+<body>
+	<?php 
+		require_once 'includes/menu.php';
+	?>
+	<div class="wrapper">
+		<div class="cont">
+		
+		<?php
+		
+		$login=$_POST['login']; 
+		$password=$_POST['password']; 
+		$email = $_POST['email'];
+		
+		$result = mysqli_query($link,"SELECT * FROM users WHERE email='".$email."'");
+		$data = mysqli_fetch_array($result);
+		
+		if ($data){
+			echo "Пользователь с таким email уже существует.";
+		}
+		else {
+			$result = mysqli_query($link,"SELECT * FROM users WHERE login='".$login."'");
+			$data = mysqli_fetch_array($result);
+			if ($data){
+				echo "Пользователь с таким логином уже существует.";
+			}
+			else {
+				$query="INSERT INTO users (id,login,email,password) VALUES ('','".$login."','".$email."','".$password."')";
+				$result = mysqli_query($link,$query);
+				if ($result) echo "Регистрация прошла успешно!";
+			}
+		}
+		
+		echo '<br>Вы будете перенаправлены на главную страницу через 10 секунд.<br>';
+		header('Refresh: 10; url=/Course-work/index.php');
+		?>
+		</div>
+	<?php
+	include 'includes/footer.php'; 
+	?>
+	</div>
+</body>
+</html>

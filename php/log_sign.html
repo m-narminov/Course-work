@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<link rel="stylesheet" href="../styles/log_sign.css" media="screen" type="text/css" />
+</head>
+
+<body>
+
+	<div id="login">
+		<div class="flip">
+			<div class="form-signup">
+			  <h1>Регистрация</h1>
+			  <fieldset>
+			  <p class="login-msg"></p>
+				<form method="POST" action="signup.php">
+				  <input name="email" type="email" placeholder="Введите Ваш email адрес..." required />
+				  <input name="password" type="password" placeholder="Ваш сложный пароль..." required />
+				  <input name="login" type="text" placeholder="Имя пользователя" required />
+				  <input type="submit" value="Зарегистрироваться" />
+				</form>
+				<a href="#" class="flipper">Уже зарегистрированы? Войти.</a>
+			  </fieldset>
+			</div>
+			<div class="form-login">
+			  <h1>Авторизация</h1>
+			  <form method="POST" action="login.php">
+				<fieldset>
+					<input name="user" type="email" placeholder="Логин или Email" required />
+					<input name="password" type="password" placeholder="Пароль" required />
+					<input type="submit" value="ВОЙТИ" />
+					<p><a href="#" class="flipper">Нет аккаунта? Регистрация.</a><br>
+					<!-- <a href="#">Забыли пароль?</a></p> -->
+				</fieldset>
+			  </form>
+			</div>
+		</div>
+	</div>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+	<script src="../js/log_sign.js"></script>
+
+</body>
+</html>
