@@ -20,7 +20,8 @@ a, a:hover{
 }
 
 footer {
-    width: 100%;
+    flex:0 0 auto;
+	width: 100%;
     background: #111;
     text-align: center;
     margin: 0;
@@ -28,6 +29,7 @@ footer {
 	color:#fff;
 	font-family:WarmongerBB;
 	font-size:24pt;
+	
 }
 
 footer a {
@@ -45,6 +47,16 @@ footer li{
 	display:inline-block;
 	width:25%;
 	text-align:center;
+}
+.wrapper{
+		display:flex;
+		flex-direction:column;
+		height:100%;
+}
+.cont{
+	flex:1 0 auto;
+	padding:40px 20px;
+	font-family:Tahoma;
 }
 .info{
 	padding:20px 0 0;
