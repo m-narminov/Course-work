@@ -6,7 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title><?php echo $config['title']; ?></title>
-  <link rel="stylesheet" href="styles/index.css" />
+  <link rel="stylesheet" href="styles/index.css">
+  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+	<script src="js/scrollUp.js"></script>
+	<script src="js/jquery-3.3.1.min.js"></script>
+	<script async src="//www.instagram.com/embed.js"></script>
 </head>
 <body>
   <?php  require_once 'php/includes/menu.php';

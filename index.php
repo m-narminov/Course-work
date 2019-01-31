@@ -63,36 +63,33 @@
     <div id = "news-table">
       <div id = "first-col">
         <?php $article = mysqli_fetch_assoc($sql_status); ?>
-        <div id = "main-news" style="background-image: url(<?php //путь к картинке данной статьи ?>res/img/aquaMan.jpg);f">
-          <a href="<?php echo 'cat.php?cat_id='.$article['category_id']; ?>" class="news-category"><?php echo $categs[$article['category_id']]['cat_name']; ?></a>
-          <?php echo '<a href="news.php?article_id=' .$article['article_id']. '" class="news-title">' .$article['title']. '</a>'; ?>
+        <div id = "main-news" style="background-image: url(<?php echo $article['article_img']; ?>);f">
+          <?php echo '<a href="cat.php?cat_id='.$article['category_id'].'" class="news-category">'.$categs[$article['category_id']]['cat_name']. '</a>
+            <a href="news.php?article_id=' .$article['article_id']. '" class="news-title">' .$article['title']. '</a>'; ?>
         </div>
         <?php $article = mysqli_fetch_assoc($sql_status); ?>
         <div class = "mini-news" style="background-image: url(res/img/spiderjpg.jpg);">
-          <a href="#" class="news-category">Интернет</a>
-          <a href="#" class="news-title">
-            Что такое &laquo;Паукогеддон&raquo;?
+          <?php echo '<a href="cat.php?cat_id='.$article['category_id'].'" class="news-category">'.$categs[$article['category_id']]['cat_name']. '</a>
+            <a href="news.php?article_id=' .$article['article_id']. '" class="news-title">' .$article['title']. '</a>'; ?>
           </a>
         </div>
       </div>
       <div id = "second-col">
         <?php $article = mysqli_fetch_assoc($sql_status); ?>
         <div class = "mini-news" style="background-image: url(res/img/game.jpg);">
-          <a href="#" class="news-category">Игры</a>
-          <a href="#" class="news-title">
-            30 главных игр 2018. Краткий обзор Soulcalibur VI
+        <?php echo '<a href="cat.php?cat_id='.$article['category_id'].'" class="news-category">'.$categs[$article['category_id']]['cat_name']. '</a>
+            <a href="news.php?article_id=' .$article['article_id']. '" class="news-title">' .$article['title']. '</a>'; ?>
           </a>
         </div>
         <?php $article = mysqli_fetch_assoc($sql_status); ?>
         <div class = "mini-news" style="background-image: url(res/img/afro.jpg);">
-          <a href="#" class="news-category">Кино и сериалы</a>
-          <a href="#" class="news-title">30 главных фильмов и сериалов 2018. "Люк Кейдж"</a>
+        <?php echo '<a href="cat.php?cat_id='.$article['category_id'].'" class="news-category">'.$categs[$article['category_id']]['cat_name']. '</a>
+            <a href="news.php?article_id=' .$article['article_id']. '" class="news-title">' .$article['title']. '</a>'; ?>
         </div>
         <?php $article = mysqli_fetch_assoc($sql_status); ?>
         <div class = "mini-news" style="background-image: url(res/img/football.jpg);">
-          <a href="#" class="news-category">Кино и сериалы</a>
-          <a href="#" class="news-title">Лучшие мемы 2018: Дока 2, Илон Маск,
-            Чемпионат мира и мышь, которая (кродется)</a>
+        <?php echo '<a href="cat.php?cat_id='.$article['category_id'].'" class="news-category">'.$categs[$article['category_id']]['cat_name']. '</a>
+            <a href="news.php?article_id=' .$article['article_id']. '" class="news-title">' .$article['title']. '</a>'; ?>
         </div>
       </div>
       <div id = "pop-news">
@@ -115,10 +112,12 @@
       echo '<div class="news-flex"><p class="news-category-big"><span class="svg"><img src="'.$categories[0].'" alt="" srcset=""></span>Последние</p>';
       //вывод последних новостей
         for ($i = 0; $i < 6; $i++) {
-          $article = mysqli_fetch_assoc($sql_status);
-          echo '<div class="flex-cells"><img src="'.$article['photo'].'" alt="" srcset="">
-                  <a href="cat.php?cat_id='.($article['category_id']-1).'" class="flex-caption  news-category">'.$all_categs[$article['category_id']]['cat_name'].'</a>
+          if ($article = mysqli_fetch_assoc($sql_status)){
+
+            echo '<div class="flex-cells"><img src="'.$article['article_img'].'" alt="" srcset="">
+                  <a href="cat.php?cat_id='.($article['category_id']-1).'" class="flex-caption news-category">'.$all_categs[$article['category_id']]['cat_name'].'</a>
                   <a href="news.php?article_id='.$article['article_id'].'">'.$article['title'].'</a></div>';
+          } else break;
         }
       echo '</div>';
 
